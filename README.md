@@ -1,28 +1,23 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fflask3&demo-title=Flask%203%20%2B%20Vercel&demo-description=Use%20Flask%203%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fflask3-python-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994156/random/flask.png)
+# Symmetric Cryptography: DES & AES Encryption-Decryption Tool 🛡️
 
-# Flask + Vercel
+## Introduction 📖
 
-This example shows how to use Flask 3 on Vercel with Serverless Functions using the [Python Runtime](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/python).
+This project, developed for our Introduction to Information Security course, showcases a web-based tool that facilitates encryption and decryption using two seminal symmetric cryptography algorithms: DES (Data Encryption Standard) and AES (Advanced Encryption Standard). This application provides an interactive and intuitive interface, enabling users to engage with the core principles of these encryption methods.
 
-## Demo
+![System](./assets/SymCrypt.png)
 
-https://flask-python-template.vercel.app/
+## Features ✨
 
-## How it Works
+- **Encryption & Decryption** 🔐: Offers the choice of using either DES or AES algorithms for the encryption and decryption of text.
+- **Text Input & File Upload** 📄: Accommodates both direct plaintext entry and file uploads for processing.
+- **Interactive Interface** 💻: Features a dynamic and responsive interface that becomes interactive upon algorithm selection and input.
+- **Flask Backend** ⚙️: Employs Flask, a lightweight yet robust web framework, for implementing cryptographic algorithms.
+- **Bootstrap Frontend** 🎨: The user interface is designed with Bootstrap, ensuring a responsive layout and an aesthetically appealing experience.
 
-This example uses the Web Server Gateway Interface (WSGI) with Flask to enable handling requests on Vercel with Serverless Functions.
+## Live Project 🌐
 
-## Running Locally
+Experience our Symmetric Cryptography tool live: [Visit Here](https://symmetric-cryptography-imt1dj224-zzz212zzz.vercel.app)
 
-```bash
-npm i -g vercel
-vercel dev
-```
+## Demo Video 🎥
 
-Your Flask application is now available at `http://localhost:3000`.
-
-## One-Click Deploy
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fflask3&demo-title=Flask%203%20%2B%20Vercel&demo-description=Use%20Flask%203%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fflask3-python-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994156/random/flask.png)
+Watch our demo on Bilibili: [Watch Demo](https://www.bilibili.com/video/BV1FG4y1d7gP/?t=4&spm_id_from=333.1350.jump_directly)
