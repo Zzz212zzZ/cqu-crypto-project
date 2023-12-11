@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Symmetric Cryptography</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/animate.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style2.css') }}" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static',filename='js/bootstrap.bundle.min.js') }}"></script>
+    <link rel="icon" href="{{ url_for('static', filename= 'img/title.svg') }}" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container">
+
+
+
+
+        <div class="py-5 text-center" style="padding-top:1em !important;margin-bottom: 1em ;">
+            <img class="d-block mx-auto animate__animated animate__backInDown"
+                src="{{ url_for('static',filename='img/title.svg') }}" alt="" width="72" height="57">
+            <h2 class="animate__animated animate__bounce">Symmetric Cryptography</h2>
+            <p class="lead animate__animated animate__pulse" style="margin-top: 0.5em !important;">DES and AES are two
+                classical symmetric cryptography algorithms. In this project, after selecting one of these two
+                algorithms and inputting the text, the button will be enabled, then you will get the corresponding
+                answers.<strong> Enjoy Encryption-Decryption!</strong>
+            </p>
+        </div>
+
+
+
+
+
+
+
+        <div class="row g-5 justify-content-around mb-1.5 card pb-2"
+            style="margin-right:0 ;padding-right:0 ;margin-bottom: 0;margin-left: 0px;">
+            <div class="row justify-content-around mb-1">
+
+
+                <div class="row pt-2 ">
+                    <div class="col-lg-5 col-md-12 " style="font-size: 19px;">
+                        <div class="row justify-content-start" id="modeSel" style="margin-left:0; margin-right:0">
+                            <div class="col-12 col-lg-6">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Algorithm
+                                </label>
+                            </div>
+
+                            <div class="col-md-3 col-lg-2">
+                                <div class="form-check form-switch ">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="des">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">DES</label>
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-3 col-lg-2">
+                                <div class="form-check form-switch ">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="aes">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">AES</label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr style="margin-bottom:0.5em ;">
+                    </div>
+
+                    <div class="input-group flex-nowrap ">
+                        <span class="input-group-text" id="addon-wrapping">密钥</span>
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="keyInput" placeholder="Secret Key">
+                            <label for="floatingInputGroup1">Secret Key</label>
+                        </div>
+                        <input type='file' accept='text/plain' onchange='openFile1(event)' id="euploadkey">
+                        <button class="btn btn-outline-secondary" type="button" id="uploadKey">Upload Key</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        {#这一个大row#}
+
+        <div class="row justify-content-around" id="twoBlock">
+            <div class="col-10  col-md-5" id="encryptTable">
+                <div class="row pb-2">
+                    <button type="submit" id="Encrypt" class="btn btn-primary " style="border-radius: 3px"
+                        disabled="true">
+                        Encrypt
+                    </button>
+                </div>
+                <div class="card">
+                    <div class="card-header text-center">
+
+
+                        <button id="encryptFile" style="float: left" type="button"
+                            class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown">
+                            File
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a id="euploadtxt" class="dropdown-item" href="#">Upload plaintext</a>
+                                <input type='file' accept='text/plain' onchange='openFile1(event)' id="eupload">
+
+                            </li>
+                            <li><a id="esavetxt" onclick="download1()" class="dropdown-item" href="#">Save plaintext to
+                                    txt</a></li>
+                        </ul>
+                        <button id="encryptClear" type="button" style="float: right" class="btn btn-secondary">Clear
+                            Plaintext
+                        </button>
+                    </div>
+
+
+                    <div class="form-group mt-2" id="innerArea1">
+                        <div>
+                            <span class="input-group-text" id="plainTitle">
+                                {# <img src="{{ url_for('static', filename= 'img/content.svg') }}" alt="Logo" width=""
+                                    height="22px" #} {# class="d-inline-block align-text-top">#}
+                                Plaintext</span>
+                        </div>
+
+                        <textarea rows="7" type="text" placeholder="Input plaintext or upload file here."
+                            class="form-control animate__animated" name="Explicit text" id="input_text"></textarea>
+                    </div>
+                    {# form-group #}
+
+                </div>
+                {# card #}
+            </div>
+
+            {# 第二个表，解密表#}
+            <div class="col-10  col-md-5  " id="decryptTable">
+                <div class="row pb-2">
+                    <button type="submit" id="Decrypt" class="btn btn-outline-success" disabled="true">
+                        Decrypt
+                    </button>
+                </div>
+                <div class="card">
+                    <div class="card-header text-center">
+
+                        <button id="decryptFile" style="float: left" type="button"
+                            class="btn btn-outline-info dropdown-toggle" data-bs-toggle="dropdown">
+                            File
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a id="cuploadtxt" class="dropdown-item" href="#">Upload ciphertext</a>
+                                <input type='file' accept='text/plain' onchange='openFile2(event)' id="cupload">
+                            </li>
+                            <li><a id="csavetxt" onclick="download2()" class="dropdown-item" href="#">Save ciphertext to
+                                    txt</a></li>
+                        </ul>
+                        <button id="decryptClear" type="button" style="float: right" class="btn btn-secondary">Clear
+                            Ciphertext
+                        </button>
+                    </div>
+
+
+                    <div class="form-group mt-2" id="innerArea2">
+                        <div class="alert alert-warning alert-dismissible fade show animate__animated" role="alert"
+                            id="decryptAlert">
+                            <strong>Something wrong!</strong> <br />Please input valid ciphertext!.
+
+                        </div>
+                        <script>
+                            $("#decryptAlert").hide()
+                        </script>
+                        <span class="input-group-text" id="cipherTitle">
+
+                            Ciphertext</span>
+
+
+                        <textarea rows="7" placeholder="Input plaintext or upload file here."
+                            class="form-control animate__animated " name="Cipher text" id="output_text"
+                            onclick=""></textarea>
+                    </div>
+                    {# form-group #}
+                </div>
+                {# card #}
+            </div>
+        </div>
+
+       
+
+        <div class="row justify-content-center">
+            <div id="video" class=" col-10 col-md-7 box">
+                <div class="aspect-ratio  ">
+                    <iframe src="https://player.bilibili.com/player.html?aid=860391939&bvid=BV1FG4y1d7gP&cid=899936559&page=1"
+                        scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row justify-content-center">
+            <div class=" col-10 col-md-7 ">
+                <div class="row">
+                    <label class="box2 like">
+
+                        <input type="checkbox">
+
+                        <svg class="icon" width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M9.77234 30.8573V11.7471H7.54573C5.50932 11.7471 3.85742 13.3931 3.85742 15.425V27.1794C3.85742 29.2112 5.50932 30.8573 7.54573 30.8573H9.77234ZM11.9902 30.8573V11.7054C14.9897 10.627 16.6942 7.8853 17.1055 3.33591C17.2666 1.55463 18.9633 0.814421 20.5803 1.59505C22.1847 2.36964 23.243 4.32583 23.243 6.93947C23.243 8.50265 23.0478 10.1054 22.6582 11.7471H29.7324C31.7739 11.7471 33.4289 13.402 33.4289 15.4435C33.4289 15.7416 33.3928 16.0386 33.3215 16.328L30.9883 25.7957C30.2558 28.7683 27.5894 30.8573 24.528 30.8573H11.9911H11.9902Z">
+                            </path>
+                        </svg>
+
+                        <span></span>
+                    </label>
+
+                    <label class="box2 coin">
+                        <input type="checkbox">
+
+                        <svg class="icon" width="36" height="36" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M14.045 25.5454C7.69377 25.5454 2.54504 20.3967 2.54504 14.0454C2.54504 7.69413 7.69377 2.54541 14.045 2.54541C20.3963 2.54541 25.545 7.69413 25.545 14.0454C25.545 17.0954 24.3334 20.0205 22.1768 22.1771C20.0201 24.3338 17.095 25.5454 14.045 25.5454ZM9.66202 6.81624H18.2761C18.825 6.81624 19.27 7.22183 19.27 7.72216C19.27 8.22248 18.825 8.62807 18.2761 8.62807H14.95V10.2903C17.989 10.4444 20.3766 12.9487 20.3855 15.9916V17.1995C20.3854 17.6997 19.9799 18.1052 19.4796 18.1052C18.9793 18.1052 18.5738 17.6997 18.5737 17.1995V15.9916C18.5667 13.9478 16.9882 12.2535 14.95 12.1022V20.5574C14.95 21.0577 14.5444 21.4633 14.0441 21.4633C13.5437 21.4633 13.1382 21.0577 13.1382 20.5574V12.1022C11.1 12.2535 9.52148 13.9478 9.51448 15.9916V17.1995C9.5144 17.6997 9.10883 18.1052 8.60856 18.1052C8.1083 18.1052 7.70273 17.6997 7.70265 17.1995V15.9916C7.71158 12.9487 10.0992 10.4444 13.1382 10.2903V8.62807H9.66202C9.11309 8.62807 8.66809 8.22248 8.66809 7.72216C8.66809 7.22183 9.11309 6.81624 9.66202 6.81624Z">
+                            </path>
+                        </svg>
+
+                        <span></span>
+                    </label>
+
+                    <label class="box2 collect">
+                        <input type="checkbox">
+
+                        <svg class="icon" width="36" height="36" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M19.80715 9.26152C18.7438 9.09915 17.7624 8.36846 17.3534 7.39421L15.4723 3.4972C14.8998 2.1982 13.1004 2.1982 12.4461 3.4972L10.6468 7.39421C10.1561 8.36846 9.25639 9.09915 8.19315 9.26152L3.94016 9.91102C2.63155 10.0734 2.05904 11.6972 3.04049 12.6714L6.23023 15.9189C6.96632 16.6496 7.29348 17.705 7.1299 18.7605L6.39381 23.307C6.14844 24.6872 7.62063 25.6614 8.84745 25.0119L12.4461 23.0634C13.4276 22.4951 14.6544 22.4951 15.6359 23.0634L19.2345 25.0119C20.4614 25.6614 21.8518 24.6872 21.6882 23.307L20.8703 18.7605C20.7051 17.705 21.0339 16.6496 21.77 15.9189L24.9597 12.6714C25.9412 11.6972 25.3687 10.0734 24.06 9.91102L19.8071 9.26152Z">
+                            </path>
+                        </svg>
+
+                        <span></span>
+                    </label>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="row animate__animated col-12" id="company">
+        <span> Made by members: Jie Zeng, Yujiang Wu, Tian Qiu, Ruiqi Liu</span>
+    </div>
+
+
+
+
+</body>
+
+<script src="{{ url_for('static',filename='js/main.js') }}"></script>
+
+</html>

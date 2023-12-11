@@ -1,0 +1,217 @@
+.aspect-ratio {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 75%;
+    
+    
+}
+
+.aspect-ratio iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+#video {
+
+    /* width: 70%; */
+    padding: 1vmin 1vmin !important;
+    
+}
+
+
+#eupload,
+#cupload,
+#euploadkey {
+    display: none;
+}
+
+#encryptTable {
+    border: 3px solid #b6d4fe;
+    border-radius: 9px;
+    margin-top: 1em;
+    /* margin-bottom: 1em; */
+
+    /*height: 361px;*/
+    /*width: 47%;*/
+    /*margin-right: 3%;*/
+}
+
+
+#decryptTable {
+    border: 3px solid #b6f4de;
+    border-radius: 9px;
+    /*height: 400px;*/
+    /*width: 47%;*/
+    /*margin-left: 3%;*/
+    margin-top: 1em;
+}
+
+#Decrypt {
+    border-radius: 3px;
+    background: rgba(182, 244, 222, 0.96);
+
+}
+
+
+#innerArea1,
+#innerArea2 {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    margin-left: 2%;
+    margin-right: 2%;
+
+}
+
+#decryptAlert {
+    margin-left: 2.5%;
+    width: 95%;
+}
+
+.card {
+    margin-bottom: 1em;
+}
+
+
+h2 {
+    /*font-weight: normal;*/
+    /*font-size: 35px;*/
+    position: relative;
+    /*margin: 17px 0;*/
+
+}
+
+h2::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background-color: crimson;
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: animate 4s infinite;
+}
+
+@keyframes animate {
+    0% {
+        width: 100px;
+    }
+
+    50% {
+        width: 200px;
+    }
+
+    100% {
+        width: 100px;
+    }
+}
+
+
+#plainTitle {
+    text-align: center;
+    display: block;
+    background-color: #e3efff;
+    /*background-image: linear-gradient(to right, #ffffff 20%, #ccd6f8 100%);*/
+}
+
+#cipherTitle {
+    text-align: center;
+    display: block;
+    background-color: rgba(191, 252, 249, 0.33)
+}
+
+#modeSel {
+    /* border: 1px solid #0a53be; */
+    border-radius: 10px;
+    margin-bottom: 0.5em;
+}
+
+
+#company {
+    /* border-bottom: 2px solid  ; */
+    /* height: 123px; */
+    /* width: 90%; */
+    
+    margin-bottom: 2em;
+    text-align: center;
+    border-bottom: 1px solid;
+    /* border-image: linear-gradient(90deg, rgba(209, 168, 109, 1) 0%, #00afed 100%) 2 2 2 2; */
+    border-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%) 2 2 2 2;
+    display: None;
+    margin-top: 2em;
+}
+
+#twoBlock {
+    margin-bottom: 2em;
+
+}
+
+
+
+.box {
+    /* 超出部分要隐藏 */
+    overflow: hidden;
+  
+    /* 撑开父盒子大小 */
+    padding: 15vmin 10vmin;
+    /* 小圆角 */
+    border-radius: 5vmin;
+    /* 文字颜色、大小 */
+    color: #66ddf7;
+    font-size: 8vmin;
+  
+    /* 简单定位 */
+    position: relative;
+    /* 显示层级最上面 */
+    z-index: 0;
+  }
+  .box::before {
+    content: "";
+  
+    /* 宽高要超过父级默认的大小 */
+    width: 200%;
+    height: 200%;
+    /* 基础背景颜色 */
+    background-color: #6c859d;
+    /* conic-gradient 围绕中心点旋转的渐变 */
+    background-image: conic-gradient(transparent, #a3e1dc, transparent 30%);
+  
+    /* 定位到中间 */
+    position: absolute;
+    left: -50%;
+    top: -50%;
+    /* 显示层级最底层 */
+    z-index: -2;
+  
+    /* 旋转整个灯光渐变这一层 */
+    animation: rotate 5s linear infinite;
+  }
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .box::after {
+    content: "";
+  
+    /* 往内撑开盒子宽高，正好小一圈当做边框 */
+    inset: 1vmin;
+    background: rgb(0, 0, 0);
+    border-radius: 4vmin;
+  
+    position: absolute;
+    /* 显示层级中间，盖住最后一层的灯光 */
+    z-index: -1;
+  }
+
+
+
+
+
+
+  
+  

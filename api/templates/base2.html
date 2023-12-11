@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>加密解密</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.css')}}" />
+    <script src="{{url_for('static',filename='js/jquery/dist/jquery.js')}}"></script>
+
+
+    <meta name="referrer" content="no-referrer" />
+    <!--可以让img标签预加载网络图片-->
+
+</head>
+
+<body>
+    <!-- <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+        <h2>Checkout form</h2>
+        <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group
+            has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+    </div> -->
+
+    <div id="c1">
+
+        <!-- 控制面板 -->
+        <div id="control">
+            <div class="text" id="des_aes">Encryption / Decryption Mode</div>
+
+            <!-- 模式选择 -->
+            <button id="DES" class="btn_AD">DES</button>
+            <button id="AES" class="btn_AD">AES</button>
+
+            <!-- 密钥输入 -->
+            <div id="key">key:
+                <input id="key_input" type="text">
+            </div>
+
+            <!-- 解密或者加密执行按钮 -->
+            <div id="process">
+                <button id="Encrypt" class="btn_ED">Encrypt</button>
+                <button id="Decrypt" class="btn_ED">Decrypt</button>
+            </div>
+        </div>
+
+
+        <!-- 输入模块 -->
+        <div id="input">
+            <div class="title">Explicit text</div>
+
+            <!-- 读入txt -->
+            <button id="euploadtxt" class="uploadtxt">upload .txt</button>
+            <input type='file' accept='text/plain' onchange='openFile1(event)' id="eupload">
+
+            <!-- 存储txt -->
+            <button id="esavetxt" class="savetxt" onclick="download1()">save .txt</button>
+
+            <!-- 文本框 -->
+            <textarea name="Explicit text" id="input_text" class="text_area" cols="45" rows="15"
+                style="resize:none"></textarea>
+        </div>
+
+        <!-- 输出模块 -->
+        <div id="output">
+            <div class="title">Cipher text</div>
+
+            <!-- 读入txt -->
+            <button id="cuploadtxt" class="uploadtxt">upload .txt</button>
+            <input type='file' accept='text/plain' onchange='openFile2(event)' id="cupload">
+
+            <!-- 存储txt -->
+            <button id="csavetxt" class="savetxt" onclick="download2()">save .txt</button>
+
+            <!-- 文本框 -->
+            <textarea name="Cipher text" id="output_text" class="text_area" cols="45" rows="15"
+                style="resize:none"></textarea>
+        </div>
+    </div>
+
+
+
+    <div id="end">
+        <span class="company">
+            made by members：Yujiang Wu、Tian Qiu、Jie Zeng、Ruiqi Liu
+        </span>
+    </div>
+</body>
+<script src="{{url_for('static',filename='js/main.js')}}"></script>
+
+</html>

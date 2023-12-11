@@ -1,0 +1,251 @@
+input,button,select,textarea{
+    outline:none;
+}
+
+/* h1 {
+    font-weight: normal;
+    font-size: 35px;
+    position: relative;
+    margin: 17px 0;
+    
+} */
+
+/* h1::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background-color: crimson;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: animate 4s infinite;
+}
+@keyframes animate {
+    0% {
+        width: 100px;
+    }
+
+    50% {
+        width: 200px;
+    }
+
+    100% {
+        width: 100px;
+    }
+} */
+
+
+body{
+    display: grid;
+    grid-template-columns:1fr 2fr 2fr 2fr 1fr ;
+    grid-template-rows:0.5fr 0.01fr 2fr 0.5fr 0.1fr;
+    grid-gap: 10px;
+    background-color: #13141F;
+    height: 1100px;
+    width:98%;
+
+    margin-top: 1%;
+    margin-left: 1%;
+    grid-template-areas: 
+    ". . . . ."
+	". up up up . "
+    ". c1 c1 c1 ."
+	". . . . ."
+	". end end end ."
+    
+    /* grid-column-gap: 10px; */
+    /* height: 500px; */
+}
+
+#up{
+	position: relative;
+	grid-area: up;
+	background:#2c3c52;
+	border-radius: 10px;
+}
+
+#c1 {
+	position: relative;
+	grid-area: c1;
+	background:#f1f1f3;
+	border-radius: 10px;
+	/* border: #DAE1E8 solid 2px; */
+}
+
+
+#end {
+	position: relative;
+	grid-area: end;
+	background:#3847a6;
+	border-radius: 10px;
+	border: #111111 solid 2px;
+    font-size: large;
+    margin-bottom: 100px;
+    color: #F2F5F8;
+}
+
+#control{
+
+    position: absolute;
+    /* background: #3847a6; */
+    width: 26%;
+    height: 100%;
+ 
+}
+
+#input{
+
+    position: absolute;
+    background: #3847a6;
+    left: 26%;
+    width: 37%;
+    height: 100%;
+
+}
+
+#output{
+
+    position: absolute;
+    background: #4f60d0;
+    left: 63%;
+    width: 37%;
+    height: 100%;
+}
+
+
+/* 以上为主要模块 */
+
+/* ------------------------------------------------------------- */
+
+/* 以下为细分的模块 */
+
+#des_aes{
+    position:absolute;
+    font-size: 24px;
+    font-weight: bold;
+    left: 10%;
+    top: 5%;
+}
+
+#DES{
+    position: absolute;
+    left: 18%;
+    top: 15%;
+}
+
+#AES{
+    position: absolute;
+    left: 58%;
+    top: 15%;
+}
+#key{
+    position: absolute;
+    left: 15%;
+    top: 30%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#key_input{
+    width: 220px;
+    height: 40px;
+    font-size: 20px;
+}
+
+#process{
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    height: 43%;
+    background-color: #e7ebf0;
+    width:100%;
+    border-top: #111111 3px solid;
+}
+
+#Encrypt{
+    position: absolute;
+    left: 23%;
+    top: 30%;
+}
+
+
+#Decrypt{
+    position: absolute;
+    left: 23%;
+    top: 60%;
+}
+
+
+.title{
+    position:absolute;
+    font-size: 30px;
+    font-weight: bold;
+    left: 3%;
+    top: 3%;
+}
+
+.text_area{
+    font-size: 20px;
+    padding: 10px;
+    margin: 90px 0px 17px 17px;
+    font-style: normal;
+}
+#input_text{
+    left: 10%;
+    font-size: 20px;
+}
+
+
+.btn_AD{
+    background-color: #ffffff;
+    border: #13141F solid 3px;
+    width: 25%;
+    height: 8%;
+    font-size: px;
+    border-radius: 5px;
+    
+}
+.btn_ED{
+    background-color: #ffffff;
+    border: #13141F solid 3px;
+    width: 55%;
+    height: 20%;
+    font-size: 20px;
+    border-radius: 5px;
+}
+.btn_AD:hover,.btn_ED:hover{
+    background: #727fd5;
+}
+
+
+.uploadtxt{
+    position: absolute;
+    left: 42%;
+    top: 4%;
+    height: 7%;
+    width: 20%;
+    font-size: 20px;
+}
+
+.savetxt{
+    position: absolute;
+    left: 70%;
+    top: 4%;
+    height: 7%;
+    width: 20%;
+    font-size: 20px;
+}
+
+.company{
+	width: 100%;
+	display: inline-block;
+	padding: 20px 0px;
+	text-align: center;
+}
+
+
+
+#eupload,#cupload{
+    display: none;
+}
